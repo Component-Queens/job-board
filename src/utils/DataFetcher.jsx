@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react';
 
-export default function DataFetch() {
-  const [apiData, setApiData] = useState({});
+import { useEffect, useState } from 'react';
+
+export function useFetcher(apiUrl) {
+  const [apiData, setApiData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://boards-api.greenhouse.io/v1/boards/mx51dev/jobs");
+        const response = await fetch(apiUrl);
 
         if (!response.ok) {
           throw new Error('Failed to fetch data');
@@ -14,46 +17,15 @@ export default function DataFetch() {
 
         const responseData = await response.json();
         setApiData(responseData);
+        setLoading(false);
       } catch (error) {
-        console.error(error);
+        setError(error);
+        setLoading(false);
       }
     }
 
     fetchData();
-  }, []);
+  }, [apiUrl]);
 
-  console.log(apiData);
-
-  if (apiData && apiData.jobs && apiData.jobs.length > 0) {
-    return (
-      <div>
-        
-        <p>title: {apiData.jobs[0].title}</p>
-        <p>location:{apiData.jobs[0].location.name}</p>
-        <p>job id: {apiData.jobs[0].id}</p>
-        <p>link to job:{apiData.jobs[0].absolute_url}</p>
-
-      </div>
-    )
-  } else {
-    return (
-      <div>
-        <p>No data to display</p>
-      </div>
-    )
-  }
+  return { apiData, loading, error };
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
