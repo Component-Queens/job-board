@@ -1,6 +1,62 @@
 /* interim styling */
 * {
   font-family: "Regular";
+  background-color: #ffffff;
+}
+
+.jobTableDiv {
+  display: block;
+  margin: auto;
+  width: 75vw;
+}
+
+.tableJobList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.tableBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* note - find a way so that the borders look more seamless on touching table rows */
+
+.tableRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 5vh;
+  background-color: #ffffff;
+  border: 2px solid #cccccc;
+  border-radius: 3px;
+}
+
+.tableRow:hover{
+  background-color: rgba(112, 41, 255, 0.1);
+  border: 2px solid #7029FF;
+  border-radius: 3px;
+}
+
+.jobTableTitle {
+  width: 50%;
+  padding-left: 1vw;
+  background-color: transparent;
+}
+
+.jobTableLocation {
+  width: 50%;
+  padding-left: 1vw;
+  background-color: transparent;
 }
 
 /* Default React app styling below here: */
