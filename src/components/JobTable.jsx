@@ -24,10 +24,11 @@ export default function JobTable(){
           <div className="job-box">
             {jobCard.map((jobCard, index) =>(
                 <div key={index} className="job-item">
-                    <p>title: {jobCard.title}</p>
-                    <p>location:{jobCard.location.name}</p>
-                    <p>job id: {jobCard.id}</p>
-                    <p>link to job:{jobCard.absolute_url}</p>
+                    <div className="job-item-title">{jobCard.title}</div>
+                    <div className="job-item-location">{jobCard.location.name}</div>
+                    {/* hiding these as don't want to display on table: */}
+                    {/* <p>job id: {jobCard.id}</p>
+                    <p>link to job:{jobCard.absolute_url}</p> */}
                 </div>
             ))}
           </div>

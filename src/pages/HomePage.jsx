@@ -4,7 +4,7 @@ import JobTable from "../components/JobTable";
 export default function HomePage(){
 
     return(
-        <div>
+        <div className="all-jobs">
             <JobTable></JobTable>
 
             {/* Search box component */}
