@@ -3,12 +3,6 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <nav className="navBar">
-        <ul>
-            <li>mx51</li>
-            <li>Jobs</li>
-        </ul>
-      </nav>
       {/* Other components */}
 
       <footer>
