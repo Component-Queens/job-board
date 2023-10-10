@@ -1,3 +1,4 @@
+import FilterByDepartment from "../components/FilterByDepartments";
 import JobTable from "../components/JobTable";
 import DataFetch from "../utils/DataFetcher";
 
@@ -6,6 +7,7 @@ export default function HomePage(){
     return(
         <div>
             <JobTable></JobTable>
+            <FilterByDepartment></FilterByDepartment>
 
             {/* Search box component */}
             {/* Search All Departments Drop List */}
