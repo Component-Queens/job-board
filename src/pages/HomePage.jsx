@@ -1,10 +1,12 @@
-
+import About from "../components/About";
+import FilterByDepartment from "../components/FilterByDepartments";
 import JobTable from "../components/JobTable";
 import LocationDropList from "../components/Location";
 
-export default function HomePage(){
-
-    return(
+export default function HomePage() {
+  return (
+    <main>
+      <About/>
         <div className="all-jobs">
             <div className="jobfilters">
                 <div className="search-box filter-item">
@@ -15,13 +17,10 @@ export default function HomePage(){
                 </div>
                 <LocationDropList />
             </div>
-
-            {/* Search box component */}
-            {/* Search All Departments Drop List */}
-            {/* Search all location Drop List */}
-            <JobTable></JobTable>
-            
-            
         </div>
-    )
+        <JobTable></JobTable>
+        <FilterByDepartment></FilterByDepartment>
+      </div>
+    </main>
+  );
 }
