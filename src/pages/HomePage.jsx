@@ -1,21 +1,18 @@
 import FilterByDepartment from "../components/FilterByDepartments";
 import JobTable from "../components/JobTable";
-import DataFetch from "../utils/DataFetcher";
 
-export default function HomePage(){
-
-    return(
-        <div>
-            <JobTable></JobTable>
-            <FilterByDepartment></FilterByDepartment>
-
-            {/* Search box component */}
-            {/* Search All Departments Drop List */}
-            {/* Search all location Drop List */}
-            {/* Job Listing Display */}
-                {/* nav: to JobPage  */}
-                {/* box: Job title  */}
-                {/* box: Deparment | Location  */}
+export default function HomePage() {
+  return (
+    <main>
+      <div className="all-jobs">
+        <div className="job-filters">
+          {/* these are placeholders for setting up styling - to be removed and replaced with components: */}
+          <div className="search-box">Search</div>
+          <FilterByDepartment></FilterByDepartment>
+          <div className="location-filter">Location</div>
         </div>
-    )
+        <JobTable></JobTable>
+      </div>
+    </main>
+  );
 }
