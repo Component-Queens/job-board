@@ -1,18 +1,23 @@
-.footer-greenhouse {
+footer {
      display: flex;
      flex-direction: column;
      align-items: center;
+     justify-content: center;
+
+}
+
+.greenhouse {
+     display: flex;      
+     text-align: center;
+     padding-top: 0.25rem;
 }
 
 .greenhouse-logo {
-     width: 30%;
-     padding-left: 0.5rem;
-}
-
-.footer-privacy {
      display: flex;
-     flex-direction: column;
      align-items: center;
+     max-width: 70%;
+     max-height: 60%;
+     padding-left: 0.35rem;
 }
 
 .privacy-policy-link {
