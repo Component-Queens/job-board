@@ -26,7 +26,7 @@ root.render(
                 {/* Redirects invalid paths to the homepage: */}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
-            <FooterComponent/>
+            {/* <FooterComponent/> */}
             </BrowserRouter>
         </LocationApiProvider>
       </DepartmentApiProvider>
