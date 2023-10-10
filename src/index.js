@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import HeaderComponent from "./components/HeaderComponent";
 import ApiProvider from "./contexts/AllJobsApiContext";
+import FooterComponent from "./components/FooterComponent";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,6 +21,7 @@ root.render(
         {/* Redirects invalid paths to the homepage: */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <FooterComponent/>
     </BrowserRouter>
     </ApiProvider>
   </React.StrictMode>
