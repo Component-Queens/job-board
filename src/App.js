@@ -2,6 +2,7 @@ import HomePage from './pages/HomePage';
 import "./styles/App.css";
 import "./styles/fonts.css"
 import "./styles/header.css"
+import "./styles/JobTable.css"
 
 function App() {
 

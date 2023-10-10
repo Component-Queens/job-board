@@ -3,13 +3,13 @@ import { useContext, useState } from 'react';
 import {useFetcher} from "../utils/DataFetcher";
 import { LocationApiContext } from "../contexts/LocationApiContext";
 import Loading from "../utils/Loading";
+import CustomDropdown from './CustomDropdown';
 
 
 
 
 export default function LocationDropList(){
-    // useState for the current location select for the drop list 
-    const [selectedLocation, setSelectedLocation] = useState(''); 
+
     // Fecth data using custom hook useFetcher
     const { apiData, loading, error } = useFetcher("https://boards-api.greenhouse.io/v1/boards/mx51dev/offices");
 
@@ -22,29 +22,28 @@ export default function LocationDropList(){
     }
 
     if (apiData && apiData.offices && apiData.offices.length > 0) {
-        // To acces the specific location of the apiData
-        const locationCard = apiData.offices;
+        
+        // Elements for the drop list get from apiData
+        const locationItems = apiData.offices.map((office) => ({
+            id: office.id,
+            label: office.name,
+          }));
 
-        // To track the selected location
-        const handleLocationChange = (event) => {
-            setSelectedLocation(event.target.value);
-          };
+        // To handle the select the current item 
+        const handleSelect = (selectedItem) => {
+            // to do something more
+        };
+        
+        const initialSelectedItem = { id: 0, label: 'All locations' };
 
         return (
-            // Return a drop list
             <div className="location filter-item">
-                    <select
-                        value={selectedLocation}
-                        onChange={handleLocationChange}
-                        className="location-select"
-                    >
-                        <option value="">All Location</option>
-                        {locationCard.map((locationCard, index) =>(
-                            <option key={index} className="location-item">
-                                {locationCard.name}
-                            </option>
-                        ))}
-                    </select>
+
+                <CustomDropdown  
+                 items={locationItems}
+                 onSelect={handleSelect}
+                 initialSelectedItem={initialSelectedItem}
+                 />
                 </div>
             );
     } else {
