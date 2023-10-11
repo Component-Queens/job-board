@@ -1,11 +1,10 @@
 import React from 'react';
-import { useState } from 'react';
 import {useFetcher} from "../utils/DataFetcher";
 import Loading from "../utils/Loading";
 import CustomDropdown from './CustomDropdown';
 import { useLocation } from '../contexts/LocationContext';
 
-export default function LocationDropList({ onChange }){
+export default function LocationDropList(){
 
     // Fecth data using custom hook useFetcher
     const { apiData, loading, error } = useFetcher("https://boards-api.greenhouse.io/v1/boards/mx51dev/offices");
@@ -29,15 +28,10 @@ export default function LocationDropList({ onChange }){
             label: office.name,
         }));
         
-
        // Define the event handler for selecting a location
         const handleSelect = (selectedItem) => {
-            // // Set the Location of the departments to be displayed
+            // Set the Location of the departments to be displayed
             setSelectedLocation(selectedItem.label);
-            // // Call the onChange callback, if provided
-            if (onChange) {
-                onChange(selectedItem.label);
-            }
         };
 
         // Set the default value for the dropdown
@@ -51,11 +45,6 @@ export default function LocationDropList({ onChange }){
                  onSelect={handleSelect}
                  initialSelectedItem={initialSelectedItem}
                  >
-                    {(selectedLocation) => (
-                    <div>
-                        <p>Selected Location: {selectedLocation.label}</p>
-                    </div>
-                    )}
                 </CustomDropdown>
                 </div>
             );

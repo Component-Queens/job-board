@@ -1,6 +1,5 @@
 import About from "../components/About";
 import FilterByDepartment from "../components/FilterByDepartments";
-import JobTable from "../components/JobTable";
 import Location from "../components/Location";
 import LocationDropList from "../components/LocationDropList";
 import { LocationProvider } from "../contexts/LocationContext";
@@ -28,8 +27,6 @@ export default function HomePage() {
 
               </div>
           </div>
-          {/* <JobTable></JobTable> */}
-
           <Location />
 
 
