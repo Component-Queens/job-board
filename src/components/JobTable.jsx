@@ -3,6 +3,8 @@ import { useContext } from 'react';
 import {useFetcher} from "../utils/DataFetcher";
 import Loading from "../utils/Loading";
 import { MainApiContext } from '../contexts/MainApiContext';
+import { Link } from 'react-router-dom';
+
 
 export default function JobTable(){
 
@@ -27,6 +29,8 @@ export default function JobTable(){
         return (
           <div className="job-box">
             {jobCard.map((jobCard, index) =>(
+                // URL based on job ID for each row, just need to get routing to render expected page
+                <Link to={`/jobs/${jobCard.id}`} >
                 <div key={index} className="job-item">
                     <div className="job-item-title">{jobCard.title}</div>
                     <div className="job-item-location">{jobCard.location.name}</div>
@@ -34,6 +38,7 @@ export default function JobTable(){
                     {/* <p>job id: {jobCard.id}</p>
                     <p>link to job:{jobCard.absolute_url}</p> */}
                 </div>
+                </Link>
             ))}
           </div>
         );

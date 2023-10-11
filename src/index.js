@@ -6,8 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import HeaderComponent from "./components/HeaderComponent";
 //import FooterComponent from "./components/FooterComponent";
-
 import MainApiProvider from "./contexts/MainApiContext";
+import JobPage from "./pages/JobPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,6 +21,7 @@ root.render(
                 {/* Route for homepage: */}
                 <Route path="/" element={<App />} />
                 {/* Add another route here for job page based on id: */}
+                <Route path="/jobs/:id" elements={<JobPage/>}/>
                 {/* Redirects invalid paths to the homepage: */}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
