@@ -5,7 +5,7 @@ import Loading from "../utils/Loading";
 
 import { useLocation } from '../contexts/LocationContext';
 import CustomDropdown from './CustomDropdown';
-
+import LocationDropList from './LocationDropList';
 
 
 export default function Location(){
@@ -15,7 +15,7 @@ export default function Location(){
     const { apiData, loading, error } = useFetcher("https://boards-api.greenhouse.io/v1/boards/mx51dev/offices");
     
     // Use the useLocation hook to access the selectedLocation from the context
-    const { selectedLocation, setSelectedLocation } = useLocation();
+    const { selectedLocation,  setSelectedLocation  } = useLocation();
 
     // Loading and error handling logic
     if (loading) {
@@ -29,26 +29,33 @@ export default function Location(){
           // Call the extractData function to generate the JSX
            
         // Function to handle the select event of the location
-        const handleSelect = (selectedItem) => {
-            // Set the Location of the departments to be displayed
-            setSelectedLocation(selectedItem.label);
-        };
+        // const handleSelect = (selectedItem) => {
+        //     // Set the Location of the departments to be displayed
+        //     setSelectedLocation(selectedItem.label);
+        // };
 
         // Set the default value of the drop list
-        const initialSelectedItem = { id: 0, label: 'All locations' };
+        // const initialSelectedItem = { id: 0, label: 'All locations' };
 
+        // Handler for changing the selected location state
+        const handleLocationChange = (newLocation) => {
+            setSelectedLocation(newLocation);
+            
+        };
+        console.log(selectedLocation)
 
     return (
         <div>
+            {/* <LocationDropList onChange={handleLocationChange} /> */}
             {/* Render the custom dropdown component */}
-            <CustomDropdown
+            {/* <CustomDropdown
             items={apiData.offices.map((office) => ({
                 id: office.id,
                 label: office.name,
             }))}
             onSelect={handleSelect}
             initialSelectedItem={initialSelectedItem}
-            />
+            /> */}
             {/* Map over the offices and their departments to display the information */}
             {apiData.offices.map((office) => (
             
