@@ -1,25 +1,41 @@
 import About from "../components/About";
 import FilterByDepartment from "../components/FilterByDepartments";
 import JobTable from "../components/JobTable";
-import LocationDropList from "../components/Location";
+import Location from "../components/Location";
+import LocationDropList from "../components/LocationDropList";
+import { LocationProvider } from "../contexts/LocationContext";
+
+
 
 export default function HomePage() {
+
+
+
   return (
-    <main>
-      <About/>
-        <div className="all-jobs">
-            <div className="jobfilters">
-                <div className="search-box filter-item">
-                    <input type='text' placeholder='Search...' />
-                </div>
-                <div className="departments filter-item">
-                    <p>Departments</p>
-                </div>
-                <LocationDropList />
-            </div>
-        </div>
-        <JobTable></JobTable>
-        <FilterByDepartment></FilterByDepartment>
-    </main>
+    <LocationProvider>
+      <main>
+        <About/>
+          <div className="all-jobs">
+              <div className="jobfilters">
+                  <div className="search-box filter-item">
+                      <input type='text' placeholder='Search...' />
+                  </div>
+                  <div className="departments filter-item">
+                    <p>Deparmemts</p>
+                      
+                  </div>
+                    <LocationDropList/>
+
+              </div>
+          </div>
+          {/* <JobTable></JobTable> */}
+
+          <Location />
+
+
+
+          {/* <FilterByDepartment></FilterByDepartment> */}
+      </main>
+    </LocationProvider>
   );
 }
