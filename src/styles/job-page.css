@@ -1,0 +1,10 @@
+.job-page {
+    display: block;
+    margin: auto;
+    width: 75vw;
+}
+
+.job-attributes {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
