@@ -48,6 +48,7 @@ export default function JobPage() {
       </main>
     );
   } else {
-    return <main><div>No data to display</div></main>;
+    return <main><div>Job not found</div></main>;
+    // perhaps add a redirect here if an invalid id is entered?
   }
 }
