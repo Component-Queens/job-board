@@ -2,16 +2,23 @@ import React from 'react';
 import {useFetcher} from "../utils/DataFetcher";
 import Loading from "../utils/Loading";
 import { useLocation } from '../contexts/LocationContext';
+import { useContext } from 'react';
+import { MainApiContext } from '../contexts/MainApiContext';
 
 
 export default function Location(){
-
-
-    // Fecth data using custom hook useFetcher
-    const { apiData, loading, error } = useFetcher("https://boards-api.greenhouse.io/v1/boards/mx51dev/offices");
+  
+    // destructure api from LocationApiContext
+    const { api } = useContext(MainApiContext)
     
+    
+    // Fecth data using custom hook useFetcher
+    const { apiData, loading, error } = useFetcher(api);
+  
+  
     // Use the useLocation hook to access the selectedLocation from the context
     const { selectedLocation } = useLocation();
+ 
 
     // Loading and error handling logic
     if (loading) {
@@ -22,8 +29,6 @@ export default function Location(){
     }
 
     if (apiData && apiData.offices && apiData.offices.length > 0) {
-
-        console.log(selectedLocation)
 
     return (
         <div>
@@ -63,6 +68,7 @@ export default function Location(){
                     )}
                     </div>
                 ))}
+
                 </div>
             )
             ))}

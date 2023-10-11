@@ -1,14 +1,12 @@
 import About from "../components/About";
+import DepartmentDropList from "../components/Departments";
 import FilterByDepartment from "../components/FilterByDepartments";
 import Location from "../components/Location";
 import LocationDropList from "../components/LocationDropList";
 import { LocationProvider } from "../contexts/LocationContext";
 
 
-
 export default function HomePage() {
-
-
 
   return (
     <LocationProvider>
@@ -19,19 +17,11 @@ export default function HomePage() {
                   <div className="search-box filter-item">
                       <input type='text' placeholder='Search...' />
                   </div>
-                  <div className="departments filter-item">
-                    <p>Deparmemts</p>
-                      
-                  </div>
-                    <LocationDropList/>
-
+                  <DepartmentDropList />
+                  <LocationDropList/>
               </div>
           </div>
           <Location />
-
-
-
-          {/* <FilterByDepartment></FilterByDepartment> */}
       </main>
     </LocationProvider>
   );
