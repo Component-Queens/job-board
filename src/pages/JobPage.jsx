@@ -45,9 +45,7 @@ export default function JobPage() {
             </div>
             <div className="apply-div"><a href={ jobCard.absolute_url + `#app` }><button className="apply-button">Apply now</button></a></div>
           </div>
-          
-          {/* this is still rendering raw HTML into the display, but better than the JSON itself: */}
-          <div className="job-description">{htmlParser.parse(jobCard.content)}</div>
+          <div className="job-description" dangerouslySetInnerHTML={{__html: (htmlParser.parse(jobCard.content))}}></div>
         </div>
       </main>
     );
