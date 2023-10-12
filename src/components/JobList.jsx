@@ -34,11 +34,10 @@ export default function JobList(){
 
     if (apiData && apiData.offices && apiData.offices.length > 0) {
     
-    // console.log(selectedDepartment)
-    console.log(selectedLocation)
 
     return (
         <div>
+
             {/* Map over the offices and their departments to display the information */}
             {apiData.offices.map((office) => (
             
