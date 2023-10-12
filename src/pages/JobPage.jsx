@@ -38,12 +38,16 @@ export default function JobPage() {
       <main>
         <div className="job-page">
             <p className="job-links"><Link to="/">All Positions</Link> {`>`} {jobCard.title}</p>
-          <h1 className="job-title">{jobCard.title}</h1>
-          <p className="job-attributes">{jobCard.location.name} | {jobCard.departments[0].name} team | {jobCard.metadata[0].value}</p>
+          <div className="job-header">
+            <div className="job-summary-div">
+            <h1 className="job-title">{jobCard.title}</h1>
+          <p className="job-attributes">{jobCard.location.name} <span> | </span> {jobCard.departments[0].name} team <span> | </span> {jobCard.metadata[0].value}</p>
+            </div>
+            <div className="apply-div"><a href={ jobCard.absolute_url + `#app` }><button className="apply-button">Apply now</button></a></div>
+          </div>
+          
           {/* this is still rendering raw HTML into the display, but better than the JSON itself: */}
           <div className="job-description">{htmlParser.parse(jobCard.content)}</div>
-          {/* need to link this to the absolute url + #apply */}
-          <a href={ jobCard.absolute_url + `#app` }><button>Apply now</button></a>
         </div>
       </main>
     );
