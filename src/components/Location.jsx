@@ -33,7 +33,7 @@ export default function Location(){
 
     if (apiData && apiData.offices && apiData.offices.length > 0) {
 
-
+        console.log(selectedLocation)
     return (
         <div>
 
