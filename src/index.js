@@ -15,6 +15,7 @@ import "./styles/filters-section.css";
 import "./styles/footer.css";
 import "./styles/job-page.css"
 import JobApiProvider from "./contexts/IndividualJobApiContext";
+import SearchByJobTitle from "./components/SearchByJobTitle";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -31,6 +32,8 @@ root.render(
             <Route path="/jobs/:id" element={<JobPage />} />
             {/* Redirects invalid paths to the homepage: */}
             <Route path="*" element={<Navigate to="/" replace />} />
+            {/* Route for title search: */}
+            <Route path="/jobs/:title" element={<SearchByJobTitle />}/>
           </Routes>
           {/* <FooterComponent/> */}
         </BrowserRouter>
