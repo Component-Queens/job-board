@@ -138,7 +138,6 @@
   .job-page {
     width: 85vw;
   }
-
   .job-links,
   .job-links a {
     font-size: 12px;
@@ -177,6 +176,7 @@
 
   .job-links,
   .job-links a {
+
     font-size: 12px;
   }
   .job-header {
