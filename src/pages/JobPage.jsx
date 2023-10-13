@@ -29,7 +29,7 @@ export default function JobPage() {
   }, [id]);
 
   if (loading) {
-    return <main><div>Loading...</div></main>;
+    return <main><div className="loading"></div></main>;
   } else if (apiData) {
     const jobCard = apiData;
     console.log(jobCard);
